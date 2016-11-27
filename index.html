@@ -84,7 +84,7 @@
                             <div class="device">
                                 <div class="screen">
                                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="img/demo-screen-1.jpg" class="img-responsive" alt="">
+                                    <img src="img/demo-screen-1.png" class="img-responsive" alt="">
                                 </div>
                                 <div class="button">
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -154,7 +154,7 @@
                         <label for="comment"></label>
                         <textarea class="form-control" rows="1" id="comment"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary" id="subbutton">Submit</button>
                     </form>
                     (Don't worry, we won't spam you.)
                 </div>
@@ -180,7 +180,7 @@
                             <div class="device">
                                 <div class="screen">
                                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src="img/demo-screen-1.jpg" class="img-responsive" alt=""> </div>
+                                    <img src="img/demo-screen-1.png" class="img-responsive" alt=""> </div>
                                 <div class="button">
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                                 </div>
@@ -282,6 +282,34 @@
 
     <!-- Theme JavaScript -->
     <script src="js/new-age.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86831208-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script>
+$(document).ready(function() {
+$("#subbutton").click(function(){
+    var uri = "https://joelsproject-5fa14.firebaseio.com/emails.json"
+    var data = "{\"email\" : \"" + $("#comment").val() + "\"}";
+    alert(data);
+    $.post(uri, data);
+});
+});
+</script>
+
+
+
 
 </body>
 
