@@ -302,7 +302,6 @@ $(document).ready(function() {
 $("#subbutton").click(function(){
     var uri = "https://joelsproject-5fa14.firebaseio.com/emails.json"
     var data = "{\"email\" : \"" + $("#comment").val() + "\"}";
-    alert(data);
     $.post(uri, data);
 });
 });
